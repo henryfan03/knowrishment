@@ -6,7 +6,8 @@ const app = express();
 app.use("/users", usersRouter);
 
 app.get("/", async (request, response) => {
-    return response.status(200).json("api is working");
+    console.log("son");
+    response.status(200).json("hello");
 });
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));

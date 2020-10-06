@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getMessage } from './actions/users';
 import './App.css';
 
-function App() {
+const App = () => {
+  const fetchData = async () => {
+    const message = await getMessage();
+    setMessage(message);
+  }
+
+  const [message, setMessage] = useState("knowrishment");
+  
+  useEffect(() => {
+    fetchData()
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          KNOWRISHMENT
+          { message }
         </p>
       </header>
     </div>
